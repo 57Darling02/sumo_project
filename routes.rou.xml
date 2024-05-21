@@ -1,0 +1,12 @@
+<routes>
+    <!-- 定义车辆类型 -->
+    <vType id="car" vClass="passenger" color="1,0,0,1" accel="4.0" decel="4.5" length="4.997" width="1.963" height="1.440" minGap="2.5" maxSpeed="17"/>
+
+    <!-- 定义路线，车辆将经过-E0, J0, E2 -->
+    <route id="route0" edges="-E0 E2"/>
+
+    <!-- 定义车辆，它将按照route0行驶 -->
+    <vehicle id="vehicle1" type="car" route="route0" depart="0" departLane="best" departPos="base" departSpeed="0">
+        <parameter key="sumo" value="true"/>
+    </vehicle>
+</routes>
