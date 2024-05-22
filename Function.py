@@ -11,7 +11,7 @@ class SUMO:
         self.time_gap = time_gap
         self.lastAngel = 0
         self.end_time = traci.simulation.getEndTime()
-        self.maxTurnAngel = 1
+        self.maxTurnAngel = 0.6
     def running(self):
         return self.getTime()<self.end_time
     def getTime(self):

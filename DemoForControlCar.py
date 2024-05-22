@@ -10,11 +10,12 @@ sumo.step()
 while sumo.running():
     try:
         position = sumo.get_vehicle_position(vehicle_id)
+        if position[0] > -10 and position[0] < 4 and True:
+            sumo.movetoXY(vehicle_id, aimx, aimy, 10)
+            # print(f"now angel:({traci.vehicle.getAngle(vehicle_id)});next position({position[0]+0.08*x/length},{position[1]+0.08*y/length})")
+            # traci.vehicle.moveToXY(vehicle_id, "", -1, position[0]+0.08*x/length,position[1]+0.08*y/length,keepRoute=2)
     except:
         print("end....")
-    if position[0]>-10 and position[0]<4 and True:
-        sumo.movetoXY(vehicle_id,aimx,aimy,10)
-        # print(f"now angel:({traci.vehicle.getAngle(vehicle_id)});next position({position[0]+0.08*x/length},{position[1]+0.08*y/length})")
-        # traci.vehicle.moveToXY(vehicle_id, "", -1, position[0]+0.08*x/length,position[1]+0.08*y/length,keepRoute=2)
+        break
     sumo.step()
 sumo.close()
