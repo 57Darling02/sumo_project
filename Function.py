@@ -44,6 +44,7 @@ class SUMO:
                 speed = self.traci.vehicle.getSpeed(vid)
                 if speed is None or speed == 0:
                     speed = 10
+            self.maxTurnAngel = math.degrees(speed*self.time_gap/10)
             if abs(direction - self.angel) > self.maxTurnAngel:
                 if direction - self.angel>0:
                     direction = self.angel+self.maxTurnAngel
