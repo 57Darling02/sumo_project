@@ -4,16 +4,18 @@ sumo = Function.SUMO("test.sumocfg",time_gap)
 vehicle_id = "vehicle1"
 #设置最终的目标点
 aimx = 4.3
-aimy = 49
+aimy = 50
 # 仿真主循环
 sumo.step()
+car1 = Function.veh(sumo,vehicle_id)
 while sumo.running():
     try:
+        # sumo.traci.vehicle.changeTarget(vehicle_id,"E2")
+        print()
         position = sumo.get_vehicle_position(vehicle_id)
-        if position[0] > -10 and position[0] < 4 and True:
-            sumo.movetoXY(vehicle_id, aimx, aimy, 10)
-            # print(f"now angel:({traci.vehicle.getAngle(vehicle_id)});next position({position[0]+0.08*x/length},{position[1]+0.08*y/length})")
-            # traci.vehicle.moveToXY(vehicle_id, "", -1, position[0]+0.08*x/length,position[1]+0.08*y/length,keepRoute=2)
+        In_intersection = position[0] > -20 and position[0] < 20 and position[1] > -20 and position[1] < 20
+        if car1.if_need_control(In_intersection):
+            car1.move(aimx, aimy, 10)
     except:
         print("end....")
         break

@@ -60,25 +60,20 @@ class SUMO:
                                    keepRoute=2)
         else:
             pass
-
-# 假设我们知道车辆ID和它应该停留的边缘（edge）
-# vehicle_id = "vehicle1"
-# stop_edge_id = ":J0_22"
-
-#设置最终的目标点
-
-# edgeidn = traci.vehicle.getRoadID(vehicle_id)
-    #计算当前位置和目标点的直线方向
-    # position = traci.vehicle.getPosition(vehicle_id)
-    # x = aimx - position[0]
-    # y = aimy - position[1]
-    # length = math.sqrt(x ** 2 + y ** 2)
-    # if length == 0:
-    #     break;
-    # 当小车进入路口后，开始向直线连接目标点的方向移动
-    # if position[0]>-10 and position[0]<4 and True:
-    #     print(f"now position:({position});next position({position[0]+0.08*x/length},{position[1]+0.08*y/length})")
-    #     traci.vehicle.moveToXY(vehicle_id, "", -1, position[0]+0.08*x/length,position[1]+0.08*y/length,keepRoute=2)
-    # traci.simulationStep()
-    # time.sleep(time_gap)# 执行仿真的下一步
-# 结束仿真
+class veh:
+    def __init__(self,sumo:SUMO,vid):
+        self.vid = vid
+        self.tarci = sumo.traci
+        self.sumo = sumo
+        self.aimedges = "E2"
+        self.startcontrol = False
+    def move(self,x,y,speed = None):
+        self.sumo.movetoXY(self.vid,x,y,speed)
+    def if_need_control(self,In_intersection):
+        if In_intersection:
+            self.startcontrol = True
+        if self.sumo.traci.vehicle.getRoadID(self.vid) =="E2" and self.startcontrol:
+            self.startcontrol = False
+            return False
+        else:
+            return self.startcontrol
