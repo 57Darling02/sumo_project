@@ -63,7 +63,6 @@ class SUMO:
 class veh:
     def __init__(self,sumo:SUMO,vid):
         self.vid = vid
-        self.tarci = sumo.traci
         self.sumo = sumo
         self.aimedges = "E2"
         self.startcontrol = False
