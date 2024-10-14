@@ -68,14 +68,14 @@ class LaneAreaDomain(Domain):
     def getPosition(self, detID):
         """getPosition(string) -> double
 
-        Returns the starting position of the detector measured from the beginning of the lane in meters.
+        Returns the starting position of the detector measured from the beginning of the Lane in meters.
         """
         return self._getUniversal(tc.VAR_POSITION, detID)
 
     def getLaneID(self, detID):
         """getLaneID(string) -> string
 
-        Returns the id of the lane the detector is on.
+        Returns the id of the Lane the detector is on.
         """
         return self._getUniversal(tc.VAR_LANE_ID, detID)
 

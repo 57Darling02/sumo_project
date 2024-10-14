@@ -80,7 +80,7 @@ class StopData(object):
 
     def __repr__(self):
         return "StopData(%s)" % ', '.join([v for v in [
-            self.__attr_repr__("lane"),
+            self.__attr_repr__("Lane"),
             self.__attr_repr__("startPos"),
             self.__attr_repr__("endPos"),
             self.__attr_repr__("stoppingPlaceID"),
@@ -372,14 +372,14 @@ class VehicleDomain(VTypeDomain):
     def getLaneID(self, vehID):
         """getLaneID(string) -> string
 
-        Returns the id of the lane the named vehicle was at within the last step.
+        Returns the id of the Lane the named vehicle was at within the last step.
         """
         return self._getUniversal(tc.VAR_LANE_ID, vehID)
 
     def getLaneIndex(self, vehID):
         """getLaneIndex(string) -> integer
 
-        Returns the index of the lane the named vehicle was at within the last step.
+        Returns the index of the Lane the named vehicle was at within the last step.
         """
         return self._getUniversal(tc.VAR_LANE_INDEX, vehID)
 
@@ -415,7 +415,7 @@ class VehicleDomain(VTypeDomain):
     def getLanePosition(self, vehID):
         """getLanePosition(string) -> double
 
-        The position of the vehicle along the lane measured in m.
+        The position of the vehicle along the Lane measured in m.
         """
         return self._getUniversal(tc.VAR_LANEPOSITION, vehID)
 
@@ -533,14 +533,14 @@ class VehicleDomain(VTypeDomain):
     def getLateralLanePosition(self, vehID):
         """getLateralLanePosition(string) -> double
 
-        Returns the lateral position of the vehicle on its current lane measured in m.
+        Returns the lateral position of the vehicle on its current Lane measured in m.
         """
         return self._getUniversal(tc.VAR_LANEPOSITION_LAT, vehID)
 
     def getAllowedSpeed(self, vehID):
         """getAllowedSpeed(string) -> double
 
-        Returns the maximum allowed speed on the current lane regarding speed factor in m/s for this vehicle.
+        Returns the maximum allowed speed on the current Lane regarding speed factor in m/s for this vehicle.
         """
         return self._getUniversal(tc.VAR_ALLOWED_SPEED, vehID)
 
@@ -563,7 +563,7 @@ class VehicleDomain(VTypeDomain):
     def getLaneChangeMode(self, vehID):
         """getLaneChangeMode(string) -> integer
 
-        Gets the vehicle's lane change mode as a bitset.
+        Gets the vehicle's Lane change mode as a bitset.
         """
         return self._getUniversal(tc.VAR_LANECHANGE_MODE, vehID)
 
@@ -604,17 +604,17 @@ class VehicleDomain(VTypeDomain):
         """getBestLanes(string) -> tuple(data)
         where data is a tuple of (laneID, length, occupation, offset, allowsContinuation, tuple(nextLanes))
 
-        For each lane of the current edge a data tuple is returned where the
+        For each Lane of the current edge a data tuple is returned where the
         entries have the following meaning:
-        - laneID: the id of that lane on the current edge
-        - the length that can be driven without lane change (measured from the start of that lane)
+        - laneID: the id of that Lane on the current edge
+        - the length that can be driven without Lane change (measured from the start of that Lane)
         - the occupation on the future lanes (brutto vehicle lengths)
-        - the offset of that lane from the lane that would be strategically
-          preferred (this is the lane that requires the least future lane
-          changes or a lane that needs to be used for stopping)
-        - whether that lane allows continuing the route (for at least one more edge)
+        - the offset of that Lane from the Lane that would be strategically
+          preferred (this is the Lane that requires the least future Lane
+          changes or a Lane that needs to be used for stopping)
+        - whether that Lane allows continuing the route (for at least one more edge)
         - the sequence of lanes that would be driven starting at laneID if no
-          lane change were to take place
+          Lane change were to take place
         """
         return self._getUniversal(tc.VAR_BEST_LANES, vehID)
 
@@ -644,7 +644,7 @@ class VehicleDomain(VTypeDomain):
         minGap of the follower.
         The dist parameter defines the minimum lookback, 0 calculates the
         lookback distance from the braking distance at 4.5m/s^2 at 2*roadSpeedLimit.
-        Due to junctions and lane merges, there may be multiple followers.
+        Due to junctions and Lane merges, there may be multiple followers.
         In this case, the "critical" follower is returned. This is the follower
         where the value of (getSecureGap - gap) is maximal.
         Note that the returned follower may be further away than the given dist.
@@ -699,7 +699,7 @@ class VehicleDomain(VTypeDomain):
         bit 2: query longitudinal direction (followers:0, leaders:1)
         bit 3: blocking (return all:0, return only blockers:1)
 
-        The returned list contains pairs (ID, dist) for all lane change relevant neighboring leaders, resp. followers,
+        The returned list contains pairs (ID, dist) for all Lane change relevant neighboring leaders, resp. followers,
         along with their longitudinal distance to the ego vehicle (egoFront - egoMinGap to leaderBack, resp.
         followerFront - followerMinGap to egoBack. The value can be negative for overlapping neighs).
         For the non-sublane case, the lists will contain at most one entry.
@@ -770,7 +770,7 @@ class VehicleDomain(VTypeDomain):
     def getNextStops(self, vehID):
         """getNextStops(string) -> [(string, double, string, int, double, double), ...]
 
-        Return list of upcoming stops [(lane, endPos, stoppingPlaceID, stopFlags, duration, until), ...]
+        Return list of upcoming stops [(Lane, endPos, stoppingPlaceID, stopFlags, duration, until), ...]
         where integer stopFlag is defined as:
                1 * stopped +
                2 * parking +
@@ -787,7 +787,7 @@ class VehicleDomain(VTypeDomain):
     def getNextLinks(self, vehID):
         """getNextLinks(string) -> [(string, string, bool, bool, bool, string, string, double), ...]
 
-        Return list of upcoming links along the route [(lane, via, priority, opened, foe,
+        Return list of upcoming links along the route [(Lane, via, priority, opened, foe,
          state, direction, length), ...]
         """
         return self._getUniversal(tc.VAR_NEXT_LINKS, vehID)
@@ -898,8 +898,8 @@ class VehicleDomain(VTypeDomain):
 
     def getLaneChangeState(self, vehID, direction):
         """getLaneChangeState(string, int) -> (int, int)
-        Return the lane change state for the vehicle. The first value returns
-        the state as computed by the lane change model and the second value
+        Return the Lane change state for the vehicle. The first value returns
+        the state as computed by the Lane change model and the second value
         returns the state after incorporation TraCI requests.
         See getLaneChangeStatePretty for an interpretation of the integer/bitset
         results
@@ -908,8 +908,8 @@ class VehicleDomain(VTypeDomain):
 
     def getLaneChangeStatePretty(self, vehID, direction):
         """getLaneChangeStatePretty(string, int) -> ([string, ...], [string, ...])
-        Return the lane change state for the vehicle as two lists of string
-        constants. The first list returns the state as computed by the lane change
+        Return the Lane change state for the vehicle as two lists of string
+        constants. The first list returns the state as computed by the Lane change
         model and the second list returns the state after incorporation TraCI requests.
         """
         constants = {
@@ -1108,9 +1108,9 @@ class VehicleDomain(VTypeDomain):
 
     def changeLane(self, vehID, laneIndex, duration):
         """changeLane(string, int, double) -> None
-        Forces a lane change to the lane with the given index; The lane change
+        Forces a Lane change to the Lane with the given index; The Lane change
         will be attempted for the given duration (in s) and if it succeeds,
-        the vehicle will stay on that lane for the remaining duration.
+        the vehicle will stay on that Lane for the remaining duration.
         """
         if type(duration) is int and duration >= 1000:
             warnings.warn("API change now handles duration as floating point seconds", stacklevel=2)
@@ -1119,9 +1119,9 @@ class VehicleDomain(VTypeDomain):
     def changeLaneRelative(self, vehID, indexOffset, duration):
         """changeLaneRelative(string, int, double) -> None
 
-        Forces a relative lane change; if successful,
-        the lane will be chosen for the given amount of time (in s).
-        The indexOffset specifies the target lane relative to the vehicles current lane
+        Forces a relative Lane change; if successful,
+        the Lane will be chosen for the given amount of time (in s).
+        The indexOffset specifies the target Lane relative to the vehicles current Lane
         """
         if type(duration) is int and duration >= 1000:
             warnings.warn("API change now handles duration as floating point seconds", stacklevel=2)
@@ -1130,7 +1130,7 @@ class VehicleDomain(VTypeDomain):
     def changeSublane(self, vehID, latDist):
         """changeSublane(string, double) -> None
         Forces a lateral change by the given amount (negative values indicate changing to the right, positive
-        to the left). This will override any other lane change motivations but conform to
+        to the left). This will override any other Lane change motivations but conform to
         safety-constraints as configured by laneChangeMode.
         """
         self._setCmd(tc.CMD_CHANGESUBLANE, vehID, "d", latDist)
@@ -1156,9 +1156,9 @@ class VehicleDomain(VTypeDomain):
         deceleration can be given to prevent harsh braking due to the change of tau. If maxDecel=-1,
         the limit determined by the CF model is used.
         A vehicle ID for a reference vehicle can optionally be given, otherwise, the gap is created with
-        respect to the current leader on the ego vehicle's current lane.
+        respect to the current leader on the ego vehicle's current Lane.
         Note that this does only affect the following behavior regarding the current leader and does
-        not influence the gap acceptance during lane change, etc.
+        not influence the gap acceptance during Lane change, etc.
         """
         if type(duration) is int and duration >= 1000:
             warnings.warn("API change now handles duration as floating point seconds", stacklevel=2)
@@ -1224,7 +1224,7 @@ class VehicleDomain(VTypeDomain):
         """setLateralLanePosition(string, double) -> None
 
         Sets the lateral vehicle position relative to the center line of the
-        lane in m (negative values are to the right in right-hand networks).
+        Lane in m (negative values are to the right in right-hand networks).
         The vehicle may adapt this position in the same step unless this is
         disabled via setLaneChangeMode.
         """
@@ -1232,7 +1232,7 @@ class VehicleDomain(VTypeDomain):
 
     def updateBestLanes(self, vehID):
         """ updateBestLanes(string) -> None
-        Triggers an update of the vehicle's bestLanes (structure determining the lane preferences used by LC models)
+        Triggers an update of the vehicle's bestLanes (structure determining the Lane preferences used by LC models)
         It may be called after modifying the vClass for instance.
         """
         self._setCmd(tc.VAR_UPDATE_BESTLANES, vehID)
@@ -1406,7 +1406,7 @@ class VehicleDomain(VTypeDomain):
     def setLaneChangeMode(self, vehID, lcm):
         """setLaneChangeMode(string, integer) -> None
 
-        Sets the vehicle's lane change mode as a bitset.
+        Sets the vehicle's Lane change mode as a bitset.
         """
         self._setCmd(tc.VAR_LANECHANGE_MODE, vehID, "i", lcm)
 
@@ -1483,7 +1483,7 @@ class VehicleDomain(VTypeDomain):
         any edge in the network but it's route then only consists of that edge.
         If keepRoute is set to 2 the vehicle has all the freedom of keepRoute=0
         but in addition to that may even move outside the road network.
-        edgeID and lane are optional placement hints to resolve ambiguities.
+        edgeID and Lane are optional placement hints to resolve ambiguities.
         The command fails if no suitable target position is found within the
         distance given by matchThreshold.
         '''
@@ -1492,8 +1492,8 @@ class VehicleDomain(VTypeDomain):
     def addSubscriptionFilterLanes(self, lanes, noOpposite=False, downstreamDist=None, upstreamDist=None):
         """addSubscriptionFilterLanes(list(integer), bool, double, double) -> None
 
-        Adds a lane-filter to the last modified vehicle context subscription (call it just after subscribing).
-        lanes is a list of relative lane indices (-1 -> right neighboring lane of the ego, 0 -> ego lane, etc.)
+        Adds a Lane-filter to the last modified vehicle context subscription (call it just after subscribing).
+        lanes is a list of relative Lane indices (-1 -> right neighboring Lane of the ego, 0 -> ego Lane, etc.)
         noOpposite specifies whether vehicles on opposite direction lanes shall be returned
         downstreamDist and upstreamDist specify the range of the search for surrounding vehicles along the road net.
         """
@@ -1544,9 +1544,9 @@ class VehicleDomain(VTypeDomain):
     def addSubscriptionFilterLCManeuver(self, direction=None, noOpposite=False, downstreamDist=None, upstreamDist=None):
         """addSubscriptionFilterLCManeuver(int) -> None
 
-        Restricts vehicles returned by the last modified vehicle context subscription to neighbor and ego-lane leader
+        Restricts vehicles returned by the last modified vehicle context subscription to neighbor and ego-Lane leader
         and follower of the ego.
-        direction - lane change direction (in {-1=right, 1=left})
+        direction - Lane change direction (in {-1=right, 1=left})
         noOpposite specifies whether vehicles on opposite direction lanes shall be returned
         downstreamDist and upstreamDist specify the range of the search for leader and follower along the road net.
         Combine with: distance filters; vClass/vType filter.
@@ -1555,8 +1555,8 @@ class VehicleDomain(VTypeDomain):
             # Using default: both directions
             lanes = [-1, 0, 1]
         elif not (direction == -1 or direction == 1):
-            warnings.warn("Ignoring lane change subscription filter " +
-                          "with non-neighboring lane offset direction=%s." % direction)
+            warnings.warn("Ignoring Lane change subscription filter " +
+                          "with non-neighboring Lane offset direction=%s." % direction)
             return
         else:
             lanes = [0, direction]
@@ -1571,7 +1571,7 @@ class VehicleDomain(VTypeDomain):
     def addSubscriptionFilterLeadFollow(self, lanes):
         """addSubscriptionFilterLCManeuver(lanes) -> None
 
-        Restricts vehicles returned by the last modified vehicle context subscription to neighbor and ego-lane leader
+        Restricts vehicles returned by the last modified vehicle context subscription to neighbor and ego-Lane leader
         and follower of the ego.
         Combine with: lanes-filter to restrict to one direction; distance filters; vClass/vType filter.
         """

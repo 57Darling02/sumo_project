@@ -442,7 +442,7 @@ class VTypeDomain(Domain):
         Sets the action step length for this type. If resetActionOffset == True (default), the
         next action point is scheduled immediately for all vehicles of the type.
         If resetActionOffset == False, the interval between the last and the next action point is
-        updated to match the given value for all vehicles of the type, or if the latter is smaller
+        update to match the given value for all vehicles of the type, or if the latter is smaller
         than the time since the last action point, the next action follows immediately.
         If called in the context of a person or vehicle, it will change the value just for the single instance.
         Use the respective object ID as typeID value in said context.

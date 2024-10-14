@@ -51,7 +51,7 @@ CMD_REROUTE_TO_PARKING = 0xc2
 #  command: Resume from parking
 CMD_RESUME = 0x19
 
-#  command: set lane
+#  command: set Lane
 CMD_CHANGELANE = 0x13
 
 #  command: slow down
@@ -78,7 +78,7 @@ CMD_TAXI_DISPATCH = 0x21
 #  command: change target
 CMD_CHANGETARGET = 0x31
 
-#  command: close sumo
+#  command: close sumoAPI
 CMD_CLOSE = 0x7F
 
 #  command: add subscription filter
@@ -130,19 +130,19 @@ CMD_SUBSCRIBE_TL_VARIABLE = 0xd2
 #  response: subscribe traffic lights variable
 RESPONSE_SUBSCRIBE_TL_VARIABLE = 0xe2
 
-#  command: subscribe lane context
+#  command: subscribe Lane context
 CMD_SUBSCRIBE_LANE_CONTEXT = 0x83
-#  response: subscribe lane context
+#  response: subscribe Lane context
 RESPONSE_SUBSCRIBE_LANE_CONTEXT = 0x93
-#  command: get lane variable
+#  command: get Lane variable
 CMD_GET_LANE_VARIABLE = 0xa3
-#  response: get lane variable
+#  response: get Lane variable
 RESPONSE_GET_LANE_VARIABLE = 0xb3
-#  command: set lane variable
+#  command: set Lane variable
 CMD_SET_LANE_VARIABLE = 0xc3
-#  command: subscribe lane variable
+#  command: subscribe Lane variable
 CMD_SUBSCRIBE_LANE_VARIABLE = 0xd3
-#  response: subscribe lane variable
+#  response: subscribe Lane variable
 RESPONSE_SUBSCRIBE_LANE_VARIABLE = 0xe3
 
 #  command: subscribe vehicle context
@@ -280,19 +280,19 @@ CMD_SUBSCRIBE_GUI_VARIABLE = 0xdc
 #  response: subscribe GUI variable
 RESPONSE_SUBSCRIBE_GUI_VARIABLE = 0xec
 
-#  command: subscribe lane area detector (e2) context
+#  command: subscribe Lane area detector (e2) context
 CMD_SUBSCRIBE_LANEAREA_CONTEXT = 0x8d
-#  response: subscribe lane area detector (e2) context
+#  response: subscribe Lane area detector (e2) context
 RESPONSE_SUBSCRIBE_LANEAREA_CONTEXT = 0x9d
-#  command: get lane area detector (e2) variable
+#  command: get Lane area detector (e2) variable
 CMD_GET_LANEAREA_VARIABLE = 0xad
-#  response: get lane area detector (e2) variable
+#  response: get Lane area detector (e2) variable
 RESPONSE_GET_LANEAREA_VARIABLE = 0xbd
-#  command: set lane area detector (e2) variable, not used yet
+#  command: set Lane area detector (e2) variable, not used yet
 CMD_SET_LANEAREA_VARIABLE = 0xcd
-#  command: subscribe lane area detector (e2) variable
+#  command: subscribe Lane area detector (e2) variable
 CMD_SUBSCRIBE_LANEAREA_VARIABLE = 0xdd
-#  response: subscribe lane area detector (e2) variable
+#  response: subscribe Lane area detector (e2) variable
 RESPONSE_SUBSCRIBE_LANEAREA_VARIABLE = 0xed
 
 #  command: subscribe person context
@@ -889,13 +889,13 @@ LANE_ALLOWED = 0x34
 #  list of not allowed vehicle classes (get&set: lanes)
 LANE_DISALLOWED = 0x35
 
-#  list of allowed vehicle classes for lane changes (get&set: lanes)
+#  list of allowed vehicle classes for Lane changes (get&set: lanes)
 LANE_CHANGES = 0x3c
 
-#  list of foe lanes (get: lane, vehicle)
+#  list of foe lanes (get: Lane, vehicle)
 VAR_FOES = 0x37
 
-#  slope (get: edge, lane, vehicle, person)
+#  slope (get: edge, Lane, vehicle, person)
 VAR_SLOPE = 0x36
 
 #  speed (get: vehicle)
@@ -913,7 +913,7 @@ VAR_SPEED_LAT = 0x32
 #  maximum allowed/possible speed (get: vehicle types, lanes, set: edges, lanes)
 VAR_MAXSPEED = 0x41
 
-#  position (2D) (get: vehicle, poi, inductionloop, lane area detector, multi-entry/multi-exit detector; set: poi)
+#  position (2D) (get: vehicle, poi, inductionloop, Lane area detector, multi-entry/multi-exit detector; set: poi)
 VAR_POSITION = 0x42
 
 #  position (2D) (get: multi-entry/multi-exit detector)
@@ -922,10 +922,10 @@ VAR_EXIT_POSITIONS = 0x43
 #  position (3D) (get: vehicle, poi, set: poi)
 VAR_POSITION3D = 0x39
 
-#  angle (get: vehicle, edge, lane, poi, gui; set: poi, gui)
+#  angle (get: vehicle, edge, Lane, poi, gui; set: poi, gui)
 VAR_ANGLE = 0x43
 
-#  length (get: vehicle types, lanes, lane area detector, set: lanes)
+#  length (get: vehicle types, lanes, Lane area detector, set: lanes)
 VAR_LENGTH = 0x44
 
 #  color (get: vehicles, vehicle types, polygons, pois)
@@ -976,10 +976,10 @@ VAR_TYPE = 0x4f
 #  road id (get: vehicles)
 VAR_ROAD_ID = 0x50
 
-#  lane id (get: vehicles, inductionloop, lane area detector)
+#  Lane id (get: vehicles, inductionloop, Lane area detector)
 VAR_LANE_ID = 0x51
 
-#  lane index (get: vehicle, edge)
+#  Lane index (get: vehicle, edge)
 VAR_LANE_INDEX = 0x52
 
 #  route id (get & set: vehicles)
@@ -1006,7 +1006,7 @@ VAR_FILL = 0x55
 #  get/set image file (poi, poly, vehicle, person, simulation)
 VAR_IMAGEFILE = 0x93
 
-#  position (1D along lane) (get: vehicle)
+#  position (1D along Lane) (get: vehicle)
 VAR_LANEPOSITION = 0x56
 
 #  route (set: vehicles)
@@ -1018,13 +1018,13 @@ VAR_EDGE_TRAVELTIME = 0x58
 #  effort information (get&set: vehicle)
 VAR_EDGE_EFFORT = 0x59
 
-#  last step travel time (get: edge, lane, e3)
+#  last step travel time (get: edge, Lane, e3)
 VAR_CURRENT_TRAVELTIME = 0x5a
 
 #  signals state (get/set: vehicle)
 VAR_SIGNALS = 0x5b
 
-#  vehicle: new lane/position along (set: vehicle)
+#  vehicle: new Lane/position along (set: vehicle)
 VAR_MOVE_TO = 0x5c
 
 #  polygon: add dynamics (set: polygon)
@@ -1061,16 +1061,16 @@ MOVE_TO_XY = 0xb4
 #  value = stopped + 2 * parking + 4 * triggered
 VAR_STOPSTATE = 0xb5
 
-#  how lane changing is performed (get/set: vehicle)
+#  how Lane changing is performed (get/set: vehicle)
 VAR_LANECHANGE_MODE = 0xb6
 
-#  maximum speed regarding max speed on the current lane and speed factor (get: vehicle)
+#  maximum speed regarding max speed on the current Lane and speed factor (get: vehicle)
 VAR_ALLOWED_SPEED = 0xb7
 
-#  position (1D lateral position relative to center of the current lane) (get: vehicle)
+#  position (1D lateral position relative to center of the current Lane) (get: vehicle)
 VAR_LANEPOSITION_LAT = 0xb8
 
-#  get/set prefered lateral alignment within the lane (vehicle)
+#  get/set prefered lateral alignment within the Lane (vehicle)
 VAR_LATALIGNMENT = 0xb9
 
 #  get/set maximum lateral speed (vehicle, vtypes)
@@ -1088,28 +1088,28 @@ VAR_LINE = 0xbd
 #  get/set vehicle via
 VAR_VIA = 0xbe
 
-#  get (lane change relevant) neighboring vehicles (vehicles)
+#  get (Lane change relevant) neighboring vehicles (vehicles)
 VAR_NEIGHBORS = 0xbf
 
-#  current CO2 emission of a node (get: vehicle, lane, edge)
+#  current CO2 emission of a node (get: vehicle, Lane, edge)
 VAR_CO2EMISSION = 0x60
 
-#  current CO emission of a node (get: vehicle, lane, edge)
+#  current CO emission of a node (get: vehicle, Lane, edge)
 VAR_COEMISSION = 0x61
 
-#  current HC emission of a node (get: vehicle, lane, edge)
+#  current HC emission of a node (get: vehicle, Lane, edge)
 VAR_HCEMISSION = 0x62
 
-#  current PMx emission of a node (get: vehicle, lane, edge)
+#  current PMx emission of a node (get: vehicle, Lane, edge)
 VAR_PMXEMISSION = 0x63
 
-#  current NOx emission of a node (get: vehicle, lane, edge)
+#  current NOx emission of a node (get: vehicle, Lane, edge)
 VAR_NOXEMISSION = 0x64
 
-#  current fuel consumption of a node (get: vehicle, lane, edge)
+#  current fuel consumption of a node (get: vehicle, Lane, edge)
 VAR_FUELCONSUMPTION = 0x65
 
-#  current noise emission of a node (get: vehicle, lane, edge)
+#  current noise emission of a node (get: vehicle, Lane, edge)
 VAR_NOISEEMISSION = 0x66
 
 #  current person number (get: vehicle, trafficlight)
@@ -1147,7 +1147,7 @@ VAR_FOLLOWER = 0x78
 #  edge index in current route (get: vehicle)
 VAR_ROUTE_INDEX = 0x69
 
-#  current waiting time (get: vehicle, lane)
+#  current waiting time (get: vehicle, Lane)
 VAR_WAITING_TIME = 0x7a
 
 #  current waiting time (get: vehicle)
@@ -1171,13 +1171,13 @@ VAR_ACCELERATION = 0x72
 #  arrival position (get,set: vehicle)
 VAR_ARRIVALPOS = 0x75
 
-#  arrival lane (get,set: vehicle)
+#  arrival Lane (get,set: vehicle)
 VAR_ARRIVALLANE = 0x76
 
 #  arrival speed (get,set: vehicle)
 VAR_ARRIVALSPEED = 0x77
 
-#  add log message (set: simulation)
+#  add log_info message (set: simulation)
 CMD_MESSAGE = 0x65
 
 #  current time in seconds (get: simulation)
@@ -1186,7 +1186,7 @@ VAR_TIME = 0x66
 #  current time step (get: simulation)
 VAR_TIME_STEP = 0x70
 
-#  current electricity consumption of a node (get: vehicle, lane, edge)
+#  current electricity consumption of a node (get: vehicle, Lane, edge)
 VAR_ELECTRICITYCONSUMPTION = 0x71
 
 #  number of loaded vehicles (get: simulation)
@@ -1288,7 +1288,7 @@ VAR_SCALE = 0x8e
 #  clears the simulation of all not inserted vehicles (set: simulation)
 CMD_CLEAR_PENDING_VEHICLES = 0x94
 
-#  retrieve number of not inserted  vehicles (get: simulation, edge, lane)
+#  retrieve number of not inserted  vehicles (get: simulation, edge, Lane)
 VAR_PENDING_VEHICLES = 0x94
 
 #  retrieve global option value (get: simulation)
@@ -1408,11 +1408,11 @@ VAR_TRACK_VEHICLE = 0xa6
 #  presence of view
 VAR_HAS_VIEW = 0xa7
 
-# @name currently wanted lane-change action
+# @name currently wanted Lane-change action
 # @{
 # @brief No action desired
 LCA_NONE = 0
-# @brief Needs to stay on the current lane
+# @brief Needs to stay on the current Lane
 LCA_STAY = 1 << 0
 # @brief Wants go to the left
 LCA_LEFT = 1 << 1
@@ -1450,11 +1450,11 @@ LCA_OVERLAPPING = 1 << 13
 LCA_INSUFFICIENT_SPACE = 1 << 14
 # @brief used by the sublane model
 LCA_SUBLANE = 1 << 15
-# @brief Vehicle is too slow to complete a continuous lane change (in case that maxSpeedLatStanding==0)
+# @brief Vehicle is too slow to complete a continuous Lane change (in case that maxSpeedLatStanding==0)
 LCA_INSUFFICIENT_SPEED = 1 << 28
-# @brief lane can change
+# @brief Lane can change
 LCA_WANTS_LANECHANGE = LCA_LEFT | LCA_RIGHT
-# @brief lane can change or stay
+# @brief Lane can change or stay
 LCA_WANTS_LANECHANGE_OR_STAY = LCA_WANTS_LANECHANGE | LCA_STAY
 # @brief blocked left
 LCA_BLOCKED_LEFT = LCA_BLOCKED_BY_LEFT_LEADER | LCA_BLOCKED_BY_LEFT_FOLLOWER
@@ -1466,7 +1466,7 @@ LCA_BLOCKED_BY_LEADER = LCA_BLOCKED_BY_LEFT_LEADER | LCA_BLOCKED_BY_RIGHT_LEADER
 LCA_BLOCKED_BY_FOLLOWER = LCA_BLOCKED_BY_LEFT_FOLLOWER | LCA_BLOCKED_BY_RIGHT_FOLLOWER
 # @brief blocked in all directions
 LCA_BLOCKED = LCA_BLOCKED_LEFT | LCA_BLOCKED_RIGHT | LCA_INSUFFICIENT_SPACE | LCA_INSUFFICIENT_SPEED
-# @brief reasons of lane change
+# @brief reasons of Lane change
 LCA_CHANGE_REASONS = (LCA_STRATEGIC | LCA_COOPERATIVE | LCA_SPEEDGAIN | LCA_KEEPRIGHT | LCA_SUBLANE | LCA_TRACI)
 #  LCA_BLOCKED_BY_CURRENT_LEADER = 1 << 28
 #  LCA_BLOCKED_BY_CURRENT_FOLLOWER = 1 << 29

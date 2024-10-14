@@ -35,7 +35,7 @@ class CalibratorDomain(Domain):
 
     def getLaneID(self, calibratorID):
         """getLaneID(string) -> string
-        Returns the lane of this calibrator (if it applies to a single lane)
+        Returns the Lane of this calibrator (if it applies to a single Lane)
         """
         return self._getUniversal(tc.VAR_LANE_ID, calibratorID)
 

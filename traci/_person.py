@@ -133,8 +133,8 @@ class PersonDomain(VTypeDomain):
     def getLaneID(self, personID):
         """getLaneID(string) -> string
 
-        Returns the id of the lane the named person was at within the last step.
-        If the current person stage does not provide a lane, "" is returned.
+        Returns the id of the Lane the named person was at within the last step.
+        If the current person stage does not provide a Lane, "" is returned.
         """
         return self._getUniversal(tc.VAR_LANE_ID, personID)
 
@@ -148,7 +148,7 @@ class PersonDomain(VTypeDomain):
     def getLanePosition(self, personID):
         """getLanePosition(string) -> double
 
-        The position of the person along the lane measured in m.
+        The position of the person along the Lane measured in m.
         """
         return self._getUniversal(tc.VAR_LANEPOSITION, personID)
 

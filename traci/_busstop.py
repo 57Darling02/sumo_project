@@ -29,21 +29,21 @@ class BusStopDomain(Domain):
 
     def getLaneID(self, stopID):
         """getLaneID(string) -> string
-        Returns the lane of this calibrator (if it applies to a single lane)
+        Returns the Lane of this calibrator (if it applies to a single Lane)
         """
         return self._getUniversal(tc.VAR_LANE_ID, stopID)
 
     def getStartPos(self, stopID):
         """getStartPos(string) -> double
 
-        The starting position of the stop along the lane measured in m.
+        The starting position of the stop along the Lane measured in m.
         """
         return self._getUniversal(tc.VAR_POSITION, stopID)
 
     def getEndPos(self, stopID):
         """getEndPos(string) -> double
 
-        The end position of the stop along the lane measured in m.
+        The end position of the stop along the Lane measured in m.
         """
         return self._getUniversal(tc.VAR_LANEPOSITION, stopID)
 

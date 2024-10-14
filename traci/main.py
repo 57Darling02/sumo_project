@@ -122,18 +122,18 @@ def init(port=8813, numRetries=tc.DEFAULT_NUM_RETRIES, host="localhost", label="
 def start(cmd, port=None, numRetries=tc.DEFAULT_NUM_RETRIES, label="default", verbose=False,
           traceFile=None, traceGetters=True, stdout=None, doSwitch=True):
     """
-    Start a sumo server using cmd, establish a connection to it and
+    Start a sumoAPI server using cmd, establish a connection to it and
     store it under the given label. This method is not thread-safe.
 
-    - cmd (list): uses the Popen syntax. i.e. ['sumo', '-c', 'run.sumocfg']. The remote
+    - cmd (list): uses the Popen syntax. i.e. ['sumoAPI', '-c', 'run.sumocfg']. The remote
       port option will be added automatically
-    - numRetries (int): retries on failing to connect to sumo (more retries are needed
+    - numRetries (int): retries on failing to connect to sumoAPI (more retries are needed
       if a big .net.xml file must be loaded)
     - label (string) : distinguish multiple traci connections used in the same script
     - verbose (bool): print complete cmd
     - traceFile (string): write all traci commands to FILE for debugging
     - traceGetters (bool): whether to include get-commands in traceFile
-    - stdout (iostream): where to pipe sumo process stdout
+    - stdout (iostream): where to pipe sumoAPI process stdout
     """
     if connection.has(label):
         raise TraCIException("Connection '%s' is already active." % label)
@@ -174,7 +174,7 @@ def hasGUI():
 
 def load(args):
     """load([optionOrParam, ...])
-    Let sumo load a simulation using the given command line like options
+    Let sumoAPI load a simulation using the given command line like options
     Example:
       load(['-c', 'run.sumocfg'])
       load(['-n', 'net.net.xml', '-r', 'routes.rou.xml'])

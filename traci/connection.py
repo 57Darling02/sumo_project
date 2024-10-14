@@ -335,7 +335,7 @@ class Connection(StepManager):
                     lane += 256
                 lanes.add(lane)
             if len(lanes) < len(list(params)):
-                warnings.warn("Ignoring duplicate lane specification for subscription filter.")
+                warnings.warn("Ignoring duplicate Lane specification for subscription filter.")
             self._sendCmd(tc.CMD_ADD_SUBSCRIPTION_FILTER, None, None,
                           (len(lanes) + 2) * "u", filterType, len(lanes), *lanes)
 

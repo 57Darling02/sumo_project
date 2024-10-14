@@ -82,7 +82,7 @@ class Stage(object):
 
     def toXML(self, firstStage=True, isPerson=True, extra=[]):
         """write stage as xml element.
-        If firstStage=False, the from-attribute is omitted since sumo derives it from the prior stage.
+        If firstStage=False, the from-attribute is omitted since sumoAPI derives it from the prior stage.
         If extra is a list of (attrname, value) these will be added to the xml element
         """
         if self.type == tc.STAGE_WAITING:
@@ -204,7 +204,7 @@ class Collision(object):
             self.__attr_repr__("colliderSpeed"),
             self.__attr_repr__("victimSpeed"),
             self.__attr_repr__("type"),
-            self.__attr_repr__("lane"),
+            self.__attr_repr__("Lane"),
             self.__attr_repr__("pos"),
         ] if v != ""])
 

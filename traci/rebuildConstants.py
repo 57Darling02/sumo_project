@@ -23,8 +23,8 @@ This script extracts definitions from <SUMO>/src/libsumo/TraCIConstants.h
  "constants.py" and Constants.java.
  When called without options the script generates both files in the default
  locations. To generate just python give an output file name, for Java do:
- tools/traci/rebuildConstants.py -j de.tudresden.sumo.config.Constants
-  -o tools/contributed/traas/src/main/java/de/tudresden/sumo/config/Constants.java
+ tools/traci/rebuildConstants.py -j de.tudresden.sumoAPI.config.Constants
+  -o tools/contributed/traas/src/main/java/de/tudresden/sumoAPI/config/Constants.java
 """
 
 from __future__ import print_function
@@ -108,8 +108,8 @@ This script contains TraCI constant definitions from <SUMO_HOME>/src/libsumo/Tra
 
 if options.output is None:
     outputs = [(os.path.join(dirname, "constants.py"), None),
-               (dirname + "/../contributed/traas/src/main/java/de/tudresden/sumo/config/Constants.java",
-                options.java if options.java else "de.tudresden.sumo.config.Constants")]
+               (dirname + "/../contributed/traas/src/main/java/de/tudresden/sumoAPI/config/Constants.java",
+                options.java if options.java else "de.tudresden.sumoAPI.config.Constants")]
 else:
     outputs = [(options.output, options.java)]
 for out, className in outputs:

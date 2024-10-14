@@ -196,7 +196,7 @@ class TrafficLightDomain(Domain):
         """getControlledLinks(string) -> list(list(list(string)))
 
         Returns the links controlled by the traffic light, sorted by the signal index and described by giving
-        the incoming, outgoing, and via lane.
+        the incoming, outgoing, and via Lane.
         """
         return self._getUniversal(tc.TL_CONTROLLED_LINKS, tlsID)
 

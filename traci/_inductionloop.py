@@ -50,14 +50,14 @@ class InductionLoopDomain(Domain):
     def getPosition(self, loopID):
         """getPosition(string) -> double
 
-        Returns the position measured from the beginning of the lane in meters.
+        Returns the position measured from the beginning of the Lane in meters.
         """
         return self._getUniversal(tc.VAR_POSITION, loopID)
 
     def getLaneID(self, loopID):
         """getLaneID(string) -> string
 
-        Returns the id of the lane the loop is on.
+        Returns the id of the Lane the loop is on.
         """
         return self._getUniversal(tc.VAR_LANE_ID, loopID)
 
