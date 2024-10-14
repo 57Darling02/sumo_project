@@ -7,7 +7,7 @@ import math
 from math import *
 from environment import accuracy
 from DebugFile import log_debug, log_info
-# nihoa
+
 accuracy = accuracy
 lane_list = Init.lane_list
 
