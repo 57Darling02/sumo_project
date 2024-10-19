@@ -78,6 +78,8 @@ class Veh:
             self.sumoAPI.traci.vehicle.remove(self.vid)
         self.speed = self.sumoAPI.traci.vehicle.getSpeed(self.vid)
         self.lane = self.sumoAPI.traci.vehicle.getLaneID(self.vid)
+        if self.speed == 0 and self.vid != 'vehicle1':
+            self.speed = 5.5
         if self.vid == 'vehicle2':
             DebugFile.realrundata.append((self.posX,self.posY))
         # if not self.path:

@@ -10,10 +10,10 @@
     <vehicle id="vehicle1" type="BreakDowncar" route="route0" depart="0" departLane="2" departPos="base" departSpeed="10">
         <parameter key="sumo" value="true"/>
     </vehicle>
-    <vehicle id="vehicle2" type="car" route="route0" depart="0" departLane="2" departPos="base" departSpeed="5">
+    <vehicle id="vehicle2" type="car" route="route0" depart="0" departLane="2" departPos="base" departSpeed="10">
         <parameter key="sumo" value="true"/>
     </vehicle>
-    <vehicle id="vehicle3" type="car" route="route0" depart="0" departLane="2" departPos="base" departSpeed="5">
+    <vehicle id="vehicle3" type="car" route="route0" depart="0" departLane="2" departPos="base" departSpeed="10">
         <parameter key="sumo" value="true"/>
     </vehicle>
 

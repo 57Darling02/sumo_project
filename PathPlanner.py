@@ -12,7 +12,6 @@ accuracy = accuracy
 lane_list = Init.lane_list
 
 def PathPlan(car:Init.Vehicle.Veh, barrier_pos_list, prediction_time = 3):
-
     # get one full path of all the path
     fullpath = car.full_path_list[0]
     barrier_frenet_pos_list = []
@@ -37,7 +36,7 @@ def PathPlan(car:Init.Vehicle.Veh, barrier_pos_list, prediction_time = 3):
     # calculate the frenet coordinate of now position
     # now_s ,now_l = Cartrsian2Frenet(sampling_points,now_position[0], now_position[1])
     # create the position list
-    s_step = 3
+    s_step = 2
     length = accuracy*len(sampling_points)
     l_step = 0.2
     log_info(f'generate sampling points:length:{length},s_step:{s_step},l_step:{l_step}')
@@ -119,7 +118,7 @@ def choose_next_point(path, x, y):
     x3, y3 = next_point
     direction1 = (x - x2) * (x3 - x2) + (y - y2) * (y3 - y2)
     # 计算向量的点积
-    if  direction1> 0:
+    if  direction1>= 0:
         return next_point
     else:
         return nearest_point
